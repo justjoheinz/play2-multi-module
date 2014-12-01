@@ -1,4 +1,5 @@
 import play.PlayImport.PlayKeys
+import play.PlayScala
 import io.gatling.sbt.GatlingPlugin
 
 name := "play2-multi"
@@ -34,3 +35,7 @@ lazy val mod1 = project.in(file("modules/mod1")).enablePlugins(PlayScala, Gatlin
 
 lazy val mod2 = project.in(file("modules/mod2")).enablePlugins(PlayScala, GatlingPlugin)
   .settings(libraryDependencies := commonDependencies)
+
+lazy val main = project.in(file("."))
+  .aggregate(mod1, mod2)
+  .enablePlugins(PlayScala)
