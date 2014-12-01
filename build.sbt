@@ -29,7 +29,7 @@ lazy val commonDependencies = Seq(
 )
 
 
-lazy val frontend = project.in(file("modules/frontend")).enablePlugins(PlayScala)
+lazy val frontend = project.in(file("modules/mod1")).enablePlugins(PlayScala, GatlingPlugin)
   .settings(libraryDependencies := commonDependencies)
 
 lazy val backend = project.in(file("modules/backend")).enablePlugins(PlayScala, GatlingPlugin)
